@@ -1,0 +1,27 @@
+APPLE INC.
+BETA SAMPLE CODE LICENSE (for use with Business Chat)
+
+PLEASE READ THIS BETA SAMPLE CODE LICENSE AGREEMENT (“AGREEMENT”) CAREFULLY BEFORE USING THE SAMPLE CODE.  BY USING THE SAMPLE CODE, YOU ARE AGREEING TO BE BOUND BY THE TERMS OF THIS AGREEMENT. IF YOU DO NOT AGREE TO THE TERMS OF THIS AGREEMENT, DO NOT USE THE SAMPLE CODE.
+
+IMPORTANT NOTE: THIS IS PRE-RELEASE SAMPLE CODE LICENSED TO YOU FOR INTERNAL TESTING AND EVALUATION PURPOSES ONLY, AND IT SHOULD NOT BE USED IN A COMMERCIAL OPERATING ENVIRONMENT OR WITH IMPORTANT DATA.
+
+1.  License. Subject to the terms and conditions of this Agreement, you are granted a limited non-exclusive license under Apple’s copyrights in the sample code accompanying this license as originally provided by Apple (the “Sample Code”) to use, reproduce, and modify the Sample Code during the term of this Agreement solely for purposes of your own internal testing and evaluation of the Sample Code in connection with your evaluation of Apple’s Business Chat Developer Preview (the “BCS Developer Preview”); and only in accordance with the applicable terms of use for evaluation of the BCS Developer Preview. The Apple Software is not licensed under this Agreement for redistribution, sublicensing, transfer or commercial use of any kind. Except as expressly stated herein, no other rights or licenses are granted or to be implied, including but not limited to any rights under Apple patents.
+
+2.  No Support and Maintenance. Apple is not obligated to provide any maintenance, support or updates for the Sample Code. You acknowledge that Apple has no express or implied obligation to announce or make available a commercial version of the Sample Code to anyone in the future. Should a commercial version of the Sample Code of Apple’s Business Chat service be made available, it may not be compatible with the Sample Code licensed hereunder. Any development work you perform using the Sample Code will be at your sole expense and risk.
+
+3.  Term of Agreement. The term of this Agreement shall commence upon your downloading, installation or use of the Sample Code and will terminate automatically without notice from Apple if you fail to comply with any term(s) of this Agreement. Upon release of a non-beta version of the Sample Code or earlier if requested by Apple, You agree to cease using the beta Sample Code provided to You for evaluation purposes under this Agreement
+
+4.  Disclaimer of Warranties.
+A.	The Sample Code provided hereunder is a pre-release version that may be incomplete and may contain inaccuracies or errors that could cause failures or loss of data.
+
+B.  YOU EXPRESSLY ACKNOWLEDGE AND AGREE THAT, TO THE EXTENT PERMITTED BY APPLICABLE LAW, USE OF THE SAMPLE CODE AND ANY SERVICES ACCESSED THROUGH THE SAMPLE CODE, IS AT YOUR SOLE RISK AND THAT THE ENTIRE RISK AS TO SATISFACTORY QUALITY, PERFORMANCE, ACCURACY AND EFFORT IS WITH YOU.
+
+C.  TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SAMPLE CODE IS PROVIDED “AS IS” AND “AS AVAILABLE”, WITH ALL FAULTS AND WITHOUT WARRANTY OF ANY KIND, AND APPLE AND APPLE’S LICENSORS HEREBY DISCLAIM ALL WARRANTIES AND CONDITIONS WITH RESPECT TO THE SAMPLE CODE, EITHER EXPRESS, IMPLIED OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES AND/OR CONDITIONS OF MERCHANTABILITY, SATISFACTORY QUALITY, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, AND NON-INFRINGEMENT OF THIRD PARTY RIGHTS.
+
+D.  APPLE DOES NOT WARRANT THAT THE SAMPLE CODE WILL MEET YOUR REQUIREMENTS, THAT THE OPERATION OF THE SAMPLE CODE WILL BE UNINTERRUPTED OR ERROR-FREE, THAT ANY SERVICES ACCESSED THROUGH THE SAMPLE CODE WILL CONTINUE TO BE MADE AVAILABLE, THAT THE SAMPLE CODE WILL BE COMPATIBLE WITH ANY OTHER PRODUCTS OR SERVICES, OR THAT DEFECTS IN THE SAMPLE CODE WILL BE CORRECTED.
+
+E.  YOU FURTHER ACKNOWLEDGE THAT THE SAMPLE CODE IS NOT INTENDED OR SUITABLE FOR USE IN SITUATIONS OR ENVIRONMENTS WHERE THE FAILURE OF, OR ERRORS OR INACCURACIES IN THE CONTENT, DATA OR INFORMATION PROVIDED BY, THE APPLE SOFTWARE COULD LEAD TO DEATH, PERSONAL INJURY, OR SEVERE PHYSICAL OR ENVIRONMENTAL DAMAGE, INCLUDING WITHOUT LIMITATION THE OPERATION OF NUCLEAR FACILITIES, AIRCRAFT NAVIGATION OR COMMUNICATION SYSTEMS, AIR TRAFFIC CONTROL, LIFE SUPPORT OR WEAPONS SYSTEMS.
+
+5. Limitation of Liability. IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION, MODIFICATION AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED AND WHETHER UNDER THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY OR OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+The Apple Software is copyrighted © 2017 by Apple Inc. All Rights Reserved.
