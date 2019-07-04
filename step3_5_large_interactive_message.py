@@ -104,7 +104,7 @@ def receive_large_interactive_payload(r=request):
                          timeout=10)
         print(r.status_code)
         print(r.content);
-        download_url = json.loads(r.content).get("download-url")
+        download_url = json.loads(r.content.decode('utf-8')).get("download-url")
         # download_url = json.loads(r.content.decode('utf-8')).get("download-url");
         print(download_url)
         # download the attachment data with GET request
