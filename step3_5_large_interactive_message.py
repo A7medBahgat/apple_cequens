@@ -101,9 +101,9 @@ def receive_large_interactive_payload(r=request):
                          headers=predownload_headers,
                          timeout=10)
         print(r.status_code)
-
-        # download_url = json.loads(r.content).get("download-url")
-        download_url = json.loads(r.content.decode('utf-8')).get("download-url");
+        print(r.content);     
+        download_url = json.loads(r.content).get("download-url")
+        # download_url = json.loads(r.content.decode('utf-8')).get("download-url");
         print(download_url)
         # download the attachment data with GET request
         encrypted_attachment_data = requests.get(download_url).content
