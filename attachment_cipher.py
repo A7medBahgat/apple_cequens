@@ -33,10 +33,10 @@ def decrypt(encrypted_data, orig_key):
         iv += chr(i)
 
 
-    print('iv ',iv)
+    print('iv ==>',iv)
     hexlify = codecs.getencoder('hex')
     # ctr = Counter.new(128, initial_value=int(iv.encode("hex"), 16))
-    ctr = Counter.new(128, initial_value=int(hexlify(iv)[0], 16))
+    ctr = Counter.new(128, initial_value=int(hexlify(iv.encode('urf-8'))[0], 16))
     cipher = AES.new(key, AES.MODE_CTR, counter=ctr)
     decrypted = cipher.decrypt(encrypted_data)
 
