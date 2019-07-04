@@ -21,6 +21,7 @@ def get_jwt_token():
 
     print("jwt_token " , jwt_token);
     jwt_token = jwt_token[2:]
+    print("jwt_token " , jwt_token);
     return jwt_token
 
 if __name__ == '__main__':
