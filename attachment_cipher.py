@@ -15,7 +15,7 @@ def encrypt(data):
     iv_vector = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for i in iv_vector:
         iv += chr(i)
-
+    iv = iv.encode()
     ctr = Counter.new(128, initial_value=int(iv.encode("hex"), 16))
     cipher = AES.new(key, AES.MODE_CTR, counter=ctr)
     encrypted_data = cipher.encrypt(data)
