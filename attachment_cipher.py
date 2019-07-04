@@ -31,6 +31,7 @@ def decrypt(encrypted_data, orig_key):
     for i in iv_vector:
         iv += chr(i)
 
+    print('iv ',iv);
     # ctr = Counter.new(128, initial_value=int(iv.encode("hex"), 16))
     ctr = Counter.new(128, initial_value=int(codecs.encode(iv, "hex"), 16))
     # codecs.decode('1deadbeef4', 'hex')
