@@ -5,6 +5,7 @@ import os
 import base64
 from Crypto.Cipher import AES
 from Crypto.Util import Counter
+
 import codecs
 
 def encrypt(data):
@@ -16,8 +17,7 @@ def encrypt(data):
     for i in iv_vector:
         iv += chr(i)
 
-    ctr = Counter.new(128, initial_value=int(binascii.hexlify(i), 16))
-    # ctr = Counter.new(128, initial_value=int(iv.encode("hex"), 16))
+    ctr = Counter.new(128, initial_value=int(iv.encode("hex"), 16))
     cipher = AES.new(key, AES.MODE_CTR, counter=ctr)
     encrypted_data = cipher.encrypt(data)
 
@@ -32,10 +32,11 @@ def decrypt(encrypted_data, orig_key):
     for i in iv_vector:
         iv += chr(i)
 
-    print('iv ',iv);
-    ctr = Counter.new(128, initial_value=int(binascii.hexlify(iv), 16))
-    # ctr = Counter.new(128, initial_value=int(codecs.encode(iv, "hex"), 16))
-    # codecs.decode('1deadbeef4', 'hex')
+
+    print('iv ',iv)
+    hexlify = codecs.getencoder('hex')
+    # ctr = Counter.new(128, initial_value=int(iv.encode("hex"), 16))
+    ctr = Counter.new(128, initial_value=int(hexlify(iv)[0], 16))
     cipher = AES.new(key, AES.MODE_CTR, counter=ctr)
     decrypted = cipher.decrypt(encrypted_data)
 
