@@ -5,7 +5,7 @@ import os
 import base64
 from Crypto.Cipher import AES
 from Crypto.Util import Counter
-import binascii
+import codecs
 
 def encrypt(data):
     key = os.urandom(32)
@@ -15,8 +15,9 @@ def encrypt(data):
     iv_vector = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for i in iv_vector:
         iv += chr(i)
-    iv = iv.encode()
-    ctr = Counter.new(128, initial_value=int(iv.encode("hex"), 16))
+
+    ctr = Counter.new(128, initial_value=int(binascii.hexlify(i), 16))
+    # ctr = Counter.new(128, initial_value=int(iv.encode("hex"), 16))
     cipher = AES.new(key, AES.MODE_CTR, counter=ctr)
     encrypted_data = cipher.encrypt(data)
 
