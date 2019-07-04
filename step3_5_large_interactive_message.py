@@ -24,7 +24,9 @@ def receive_large_interactive_payload(r=request):
     # Verify the authentication
     try:
         authorization = request.headers.get("Authorization")
+        print ("beginning of authorization==> ")
         print(authorization)
+        print("  ==>end of authorization");
     except TypeError as e:
         print("\nSYSTEM: jwt_token get error: %s" % e)
         abort(400)
@@ -101,7 +103,7 @@ def receive_large_interactive_payload(r=request):
                          headers=predownload_headers,
                          timeout=10)
         print(r.status_code)
-        print(r.content);     
+        print(r.content);
         download_url = json.loads(r.content).get("download-url")
         # download_url = json.loads(r.content.decode('utf-8')).get("download-url");
         print(download_url)
