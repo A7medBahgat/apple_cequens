@@ -14,11 +14,13 @@ def get_jwt_token():
         "iss": CSP_ID,
         "iat": int(time.time())  # unit: seconds
     }
+print("jwt_token " , jwt_token)
+print("claim_payload ",claim_payload)
     jwt_token = jwt.encode(claim_payload,
                            base64.b64decode(SECRET),
                            algorithm='HS256',
                            headers=alg_headers)
-    print("jwt_token " , jwt_token)
+
     return jwt_token
 
 if __name__ == '__main__':
