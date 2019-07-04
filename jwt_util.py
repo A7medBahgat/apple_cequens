@@ -18,7 +18,7 @@ def get_jwt_token():
                            base64.b64decode(SECRET),
                            algorithm='HS256',
                            headers=alg_headers)
-    print("jwt_token %" % jwt_token)
+    print("jwt_token " , jwt_token)
     return jwt_token
 
 if __name__ == '__main__':
