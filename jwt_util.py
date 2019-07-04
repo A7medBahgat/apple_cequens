@@ -19,10 +19,10 @@ def get_jwt_token():
                            algorithm='HS256',
                            headers=alg_headers)
 
-    print("jwt_token " , jwt_token);
-    jwt_token = jwt_token[2:]
-    print("jwt_token " , jwt_token);
-    return jwt_token
+    print("jwt_token " , jwt_token.decode("utf-8"));
+    # jwt_token = jwt_token[2:]
+    # print("jwt_token " , jwt_token[2:]);
+    return jwt_token.decode("utf-8")
 
 if __name__ == '__main__':
     print (get_jwt_token())
