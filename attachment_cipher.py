@@ -6,6 +6,7 @@ import base64
 from Crypto.Cipher import AES
 from Crypto.Util import Counter
 
+import codecs
 
 def encrypt(data):
     key = os.urandom(32)
@@ -31,7 +32,11 @@ def decrypt(encrypted_data, orig_key):
     for i in iv_vector:
         iv += chr(i)
 
-    ctr = Counter.new(128, initial_value=int(iv.encode("hex"), 16))
+
+    print('iv ==>',iv)
+    hexlify = codecs.getencoder('hex')
+    # ctr = Counter.new(128, initial_value=int(iv.encode("hex"), 16))
+    ctr = Counter.new(128, initial_value=int(hexlify(iv.encode('utf-8'))[0], 16))
     cipher = AES.new(key, AES.MODE_CTR, counter=ctr)
     decrypted = cipher.decrypt(encrypted_data)
 

@@ -5,8 +5,8 @@ import base64
 import requests
 import uuid
 
-from .config import BIZ_ID, BUSINESS_CHAT_SERVER, IMESSAGE_EXTENSION_BID
-from .jwt_util import get_jwt_token
+from config import BIZ_ID, BUSINESS_CHAT_SERVER, IMESSAGE_EXTENSION_BID
+from jwt_util import get_jwt_token
 
 
 def send_list_picker_with_images(destination_id, image_file_path):

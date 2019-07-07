@@ -4,8 +4,8 @@
 import requests
 import uuid
 
-from .config import BIZ_ID, BUSINESS_CHAT_SERVER
-from .jwt_util import get_jwt_token
+from config import BIZ_ID, BUSINESS_CHAT_SERVER
+from jwt_util import get_jwt_token
 
 
 def send_list_picker_with_data_ref(destination_id, interactive_data_ref):

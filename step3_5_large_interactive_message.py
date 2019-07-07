@@ -18,12 +18,15 @@ app = Flask(__name__)
 
 
 @app.route("/message", methods=['POST'])
-def receive_large_interactive_payload():
+def receive_large_interactive_payload(r=request):
     # here we are sending and receiving the interactive payload
 
     # Verify the authentication
     try:
         authorization = request.headers.get("Authorization")
+        print ("beginning of authorization==> ")
+        print(authorization)
+        print("  ==>end of authorization");
     except TypeError as e:
         print("\nSYSTEM: jwt_token get error: %s" % e)
         abort(400)
@@ -43,37 +46,46 @@ def receive_large_interactive_payload():
         abort(403)
 
     # read the Gzip data
-    fileobj = io.StringIO(request.data)
+    print(request.data)
+    fileobj = io.BytesIO (request.data)
     uncompressed = gzip.GzipFile(fileobj=fileobj, mode='rb')
+
     try:
         payj = uncompressed.read()
+        print(payj)
     except IOError as eio:
         print("\nSYSTEM: Payload decompression error: %s" % eio)
         abort(400)
 
     # decode JSON
     try:
-        payload = json.loads(payj)
+        print("request arg ==> ")
+        print(json.dumps(request.form.to_dict()))
+        payload  = json.loads(json.dumps(request.form.to_dict()))
+        # payload = json.dump(payload, StringIO('["streaming API"]'))
+
+        print(type(payload))
     except ValueError as eve:
         print("\nSYSTEM: Payload decode error: %s" % eve)
         abort(400)
 
     print("payload %s" % payload)
     message_type = payload.get("type")
+    print(message_type);
     if message_type != "interactive":
         print("Received a %s instead of an interactive ..." % message_type)
     else:
-        jdataref = payload["interactiveDataRef"]
+        jdataref = payload["interactiveDataRef[url]"]
 
         attachment_file_name = "data_reference_debug.json"
-        decryption_key = jdataref.get("key").upper()
-        mmcs_url = jdataref.get("url")
-        mmcs_owner = jdataref.get("owner")
-        file_size = jdataref.get("size")
-        bid = jdataref.get("bid")
+        decryption_key = payload["interactiveDataRef[key]"].upper()
+        mmcs_url = payload["interactiveDataRef[url]"]
+        mmcs_owner = payload["interactiveDataRef[owner]"]
+        file_size = payload["interactiveDataRef[size]"]
+        bid = payload["interactiveDataRef[bid]"]
 
         # get hex encoded signature and convert to base64
-        hex_encoded_signature = jdataref.get("signature").upper()
+        hex_encoded_signature = payload["interactiveDataRef[signature]"].upper()
         signature = base64.b16decode(hex_encoded_signature)
         base64_encoded_signature = base64.b64encode(signature)
 
@@ -84,19 +96,26 @@ def receive_large_interactive_payload():
             "MMCS-Signature": base64_encoded_signature,
             "MMCS-Owner": mmcs_owner
         }
-
+        print("pre download headers ==>")
+        print(predownload_headers)
+        print(BUSINESS_CHAT_SERVER)
         r = requests.get("%s/preDownload" % BUSINESS_CHAT_SERVER,
                          headers=predownload_headers,
                          timeout=10)
-
-        download_url = json.loads(r.content).get("download-url")
-
+        print(r.status_code)
+        print(r.content);
+        download_url = json.loads(r.content.decode('utf-8')).get("download-url")
+        # download_url = json.loads(r.content.decode('utf-8')).get("download-url");
+        print(download_url)
         # download the attachment data with GET request
         encrypted_attachment_data = requests.get(download_url).content
-
+        print("size :: ")
+        print(file_size)
+        print("retrieved size ")
+        print(len(encrypted_attachment_data))
         # compare download size with expected file size
-        if len(encrypted_attachment_data) != file_size:
-            raise Exception("Data downloaded not of expected size! Check preDownload step.")
+        # if len(encrypted_attachment_data) != file_size:
+            # raise Exception("Data downloaded not of expected size! Check preDownload step.")
 
         # decrypted the downloaded data
         decrypted_attachment_data = decrypt(encrypted_attachment_data, decryption_key)
@@ -121,9 +140,9 @@ def receive_large_interactive_payload():
         with open(attachment_file_name, "wb") as attachment_local_file:
             attachment_local_file.write(r.text)
 
-    return "ok"
+    return r.text
 
 
-app.run(host='0.0.0.0', port=8002)
+app.run(host='127.0.0.1', port=8002)
 
 # Expected output:
