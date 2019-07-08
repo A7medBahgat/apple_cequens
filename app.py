@@ -12,7 +12,7 @@ from step3_5_large_interactive_message import receive_large_interactive_payload
 # from .step3_5_large_interactive_message import receive_large_interactive_payload
 app.route("/message", methods=['POST'])(receive_large_interactive_payload)
 
-app.run(host='127.0.0.1', port=8002)
+# app.run(host='127.0.0.1', port=8002)
 
 # def landingPage():
 #     return render_template("landingPage.html")
