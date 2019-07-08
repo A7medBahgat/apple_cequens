@@ -134,11 +134,11 @@ def receive_large_interactive_payload(r=request):
 
         # Write out the Business Chat server response
         print("%d: %s" % (r.status_code, r.text))
-
+        print("attachent file name ", attachment_file_name)
         # Write out the file
         print("\nSYSTEM: Writing full response to local file: %s" % attachment_file_name)
         with open(attachment_file_name, "wb") as attachment_local_file:
-            attachment_local_file.write((r.text).decode('utf-8'))
+            attachment_local_file.write(r.text)
 
     return r.text
 
