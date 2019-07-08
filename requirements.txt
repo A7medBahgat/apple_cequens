@@ -5,6 +5,7 @@ chardet==3.0.4
 Click==7.0
 cryptography==2.7
 Flask==1.0.3
+gunicorn==19.9.0
 idna==2.8
 itsdangerous==1.1.0
 Jinja2==2.10.1
