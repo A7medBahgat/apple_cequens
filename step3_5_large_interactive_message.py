@@ -138,7 +138,7 @@ def receive_large_interactive_payload(r=request):
         # Write out the file
         print("\nSYSTEM: Writing full response to local file: %s" % attachment_file_name)
         with open(attachment_file_name, "wb") as attachment_local_file:
-            attachment_local_file.write(r.text)
+            attachment_local_file.write((r.text).encode())
 
     return r.text
 
