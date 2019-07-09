@@ -8,9 +8,9 @@ import jwt
 import requests
 import io
 
-from .attachment_cipher import decrypt, encrypt
-from .config import BIZ_ID, BUSINESS_CHAT_SERVER, CSP_ID, SECRET
-from .jwt_util import get_jwt_token
+from attachment_cipher import decrypt, encrypt
+from config import BIZ_ID, BUSINESS_CHAT_SERVER, CSP_ID, SECRET
+from jwt_util import get_jwt_token
 
 from flask import Flask, request, abort
 

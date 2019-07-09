@@ -5,7 +5,7 @@ import base64
 import time
 import jwt
 
-from .config import CSP_ID, SECRET
+from config import CSP_ID, SECRET
 
 
 def get_jwt_token():
