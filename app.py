@@ -5,8 +5,8 @@ app = Flask(__name__)
 def home():
     return "Hello, Flask!"
 
-from step3_5_large_interactive_message import app as step3_5
-from step3_5_large_interactive_message import receive_large_interactive_payload
+from .step3_5_large_interactive_message import app as step3_5
+from .step3_5_large_interactive_message import receive_large_interactive_payload
 
 # exec(open('step3_5_large_interactive_message.py').read())
 # from .step3_5_large_interactive_message import receive_large_interactive_payload
