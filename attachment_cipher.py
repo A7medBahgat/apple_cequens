@@ -10,14 +10,16 @@ import codecs
 
 def encrypt(data):
     key = os.urandom(32)
+    hexlify = codecs.getencoder('hex')
+
     decryption_key = "00%s" % base64.b16encode(key)
 
     iv = ""
     iv_vector = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for i in iv_vector:
         iv += chr(i)
-
-    ctr = Counter.new(128, initial_value=int(iv.encode("hex"), 16))
+    ctr = Counter.new(128, initial_value=int(hexlify(iv.encode('utf-8'))[0], 16))
+    # ctr = Counter.new(128, initial_value=int(iv.encode("hex"), 16))
     cipher = AES.new(key, AES.MODE_CTR, counter=ctr)
     encrypted_data = cipher.encrypt(data)
 

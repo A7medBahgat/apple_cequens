@@ -5,19 +5,21 @@ import base64
 import requests
 import uuid
 
-from .attachment_cipher import encrypt
-from .config import BIZ_ID, BUSINESS_CHAT_SERVER
-from .jwt_util import get_jwt_token
+from attachment_cipher import encrypt
+from config import BIZ_ID, BUSINESS_CHAT_SERVER
+from jwt_util import get_jwt_token
 from flask import Flask, request, abort
 
 UNICODE_OBJ_REPLACEMENT_CHARACTER = "\uFFFC"
+
+app = Flask(__name__)
 
 
 @app.route("/sendattachment", methods=['POST'])
 def send_message_with_image_attachment():
     # load image data
     destination_id = "urn:mbid:AQAAY63/TIJe/3nF4EvsJeiA+WeopPR92ycuqyjDzc/14u/PdDhLVjieuzb5nPPwFB9u8jXUS/um2flw2Jr5SKGpDHHGstPdM9TyV0Ml5lldZ/nanUpHWMbBn5AwD3FpoqWhOP0t+5oCWvZaMCtdIPNsgFIaZEA="
-    image_file_path = "https://rcs.cequens.net/rita.jpg"
+    image_file_path = "rita.jpg"
 
     with open(image_file_path, "rb") as image_file:
         image_data = image_file.read()
@@ -100,7 +102,7 @@ if __name__ == "__main__":
     destination_id = "<source_id from previously received message>"
     image_file_path = "<path to image file>"
 
-    send_message_with_image_attachment(destination_id, image_file_path)
+    send_message_with_image_attachment()
 
 # Expected output:
 # Business Chat server return code: 200
