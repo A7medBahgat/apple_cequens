@@ -12,8 +12,11 @@ from .jwt_util import get_jwt_token
 UNICODE_OBJ_REPLACEMENT_CHARACTER = "\uFFFC"
 
 
-def send_message_with_image_attachment(destination_id, image_file_path):
+@app.route("/sendattachment", methods=['POST'])
+def send_message_with_image_attachment(destination_id = request.destination_id,
+image_file_path=request.image_file_path):
     # load image data
+
     with open(image_file_path, "rb") as image_file:
         image_data = image_file.read()
 
