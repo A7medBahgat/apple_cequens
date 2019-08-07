@@ -8,6 +8,7 @@ import uuid
 from .attachment_cipher import encrypt
 from .config import BIZ_ID, BUSINESS_CHAT_SERVER
 from .jwt_util import get_jwt_token
+from flask import Flask, request, abort
 
 UNICODE_OBJ_REPLACEMENT_CHARACTER = "\uFFFC"
 
