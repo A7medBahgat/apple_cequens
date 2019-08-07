@@ -14,9 +14,10 @@ UNICODE_OBJ_REPLACEMENT_CHARACTER = "\uFFFC"
 
 
 @app.route("/sendattachment", methods=['POST'])
-def send_message_with_image_attachment(destination_id = request.destination_id,
-image_file_path=request.image_file_path):
+def send_message_with_image_attachment():
     # load image data
+    destination_id = "urn:mbid:AQAAY63/TIJe/3nF4EvsJeiA+WeopPR92ycuqyjDzc/14u/PdDhLVjieuzb5nPPwFB9u8jXUS/um2flw2Jr5SKGpDHHGstPdM9TyV0Ml5lldZ/nanUpHWMbBn5AwD3FpoqWhOP0t+5oCWvZaMCtdIPNsgFIaZEA="
+    image_file_path = "https://rcs.cequens.net/rita.jpg"
 
     with open(image_file_path, "rb") as image_file:
         image_data = image_file.read()
