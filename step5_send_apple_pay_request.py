@@ -6,22 +6,22 @@ import json
 import requests
 import uuid
 
-from .config import BIZ_ID, BUSINESS_CHAT_SERVER, IMESSAGE_EXTENSION_BID
-from .jwt_util import get_jwt_token
+from config import BIZ_ID, BUSINESS_CHAT_SERVER, IMESSAGE_EXTENSION_BID
+from jwt_util import get_jwt_token
 
 APPLE_PAY_MERCHANT_SESSION_GATEWAY = "https://apple-pay-gateway.apple.com/paymentservices/paymentSession"
 
-MY_MERCHANT_ID = "<your.merchant.id>"
-MY_DOMAIN_NAME = "<your.verified.domain.name>"
-MY_MERCHANT_NAME = "<your merchant name>"
+MY_MERCHANT_ID = "merchant.com.cequens.app1"
+MY_DOMAIN_NAME = "webchat.cequens.net"
+MY_MERCHANT_NAME = "Cequens Testing"
 
-MY_PEM_FILE_PATH = '<local path to your .pem file>'
-MY_PAYMENT_GATEWAY_URL = "https://<your.payment.gateway.domain>/paymentGateway"
+MY_PEM_FILE_PATH = "s.omar-cequens.crt.pem"
+MY_PAYMENT_GATEWAY_URL = "https://apple-cequens-api-heroku.herokuapp.com/paymentGateway"
 
 
 def get_apple_pay_merchant_session():
     payload = json.dumps({
-        "merchantIdentifier": hashlib.sha256(MY_MERCHANT_ID).hexdigest(),
+        "merchantIdentifier": hashlib.sha256(MY_MERCHANT_ID.encode('utf-8')).hexdigest(),
         "displayName": MY_MERCHANT_NAME,
         "initiative": "messaging",
         "initiativeContext": MY_PAYMENT_GATEWAY_URL
@@ -117,13 +117,13 @@ def send_apple_pay_request(destination_id):
     r = requests.post("%s/message" % BUSINESS_CHAT_SERVER,
                       json=payload,
                       headers=headers,
-                      timeout=10)
+                      timeout=10,verify=False)
 
     print("Business Chat server return code: %s" % r.status_code)
 
 
 if __name__ == "__main__":
-    destination_id = "<source_id from previously received message>"
+    destination_id = "urn:mbid:AQAAY63/TIJe/3nF4EvsJeiA+WeopPR92ycuqyjDzc/14u/PdDhLVjieuzb5nPPwFB9u8jXUS/um2flw2Jr5SKGpDHHGstPdM9TyV0Ml5lldZ/nanUpHWMbBn5AwD3FpoqWhOP0t+5oCWvZaMCtdIPNsgFIaZEA="
     send_apple_pay_request(destination_id)
 
 # Expected output:
